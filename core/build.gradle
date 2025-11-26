@@ -1,0 +1,18 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+eclipse.project.name = appName + '-core'
+
+// =========================================================
+// PERBAIKAN: Mengatur proyek ke Java 8 (Versi 1.8)
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8 // Java 8
+    targetCompatibility = JavaVersion.VERSION_1_8 // Java 8
+}
+// =========================================================
+
+dependencies {
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+
+    if(enableGraalNative == 'true') {
+        implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
+    }
+}
